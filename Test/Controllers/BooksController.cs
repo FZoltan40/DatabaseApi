@@ -25,10 +25,10 @@ namespace Test.Controllers
             {
                 var book = new Book
                 {
-                    id = dr.GetInt32(0),
-                    title = dr.GetString(1),
-                    author = dr.GetString(2),
-                    releaseDate = dr.GetDateTime(3)
+                    Id = dr.GetInt32(0),
+                    Title = dr.GetString(1),
+                    Author = dr.GetString(2),
+                    ReleaseDate = dr.GetDateTime(3)
                 };
 
                 books.Add(book);
@@ -42,23 +42,60 @@ namespace Test.Controllers
         public Book GetById(int id)
         {
             conn.Connection.Open();
-            string sql = "SELECT * FROM books WHERE id = @id";
+            string sql = "SELECT * FROM books WHERE Id = @Id";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn.Connection);
-            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@Id", id);
 
             MySqlDataReader dr = cmd.ExecuteReader();
 
             dr.Read();
             var book = new Book
             {
-                id = dr.GetInt32(0),
-                title = dr.GetString(1),
-                author = dr.GetString(2),
-                releaseDate = dr.GetDateTime(3)
+                Id = dr.GetInt32(0),
+                Title = dr.GetString(1),
+                Author = dr.GetString(2),
+                ReleaseDate = dr.GetDateTime(3)
             };
             conn.Connection.Close();
             return book;
+        }
+
+        [HttpPost]
+        public object AddNewRecord(CreateBookDto book)
+        {
+
+            conn.Connection.Open();
+
+            string sql = "INSERT INTO `books`(`Title`, `Author`, `ReleaseDate`) VALUES (@Title,@Author,@date)";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn.Connection);
+
+            cmd.Parameters.AddWithValue("@Title", book.Title);
+            cmd.Parameters.AddWithValue("@Author", book.Author);
+            cmd.Parameters.AddWithValue("@date", book.ReleaseDate);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Connection.Close();
+            return new { message = "Sikeres hozzáadás.", result = book };
+        }
+
+        [HttpDelete]
+        public object DeleteRecord(int id)
+        {
+            conn.Connection.Open();
+
+            string sql = "DELETE FROM books WHERE id = @id";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn.Connection);
+
+            cmd.Parameters.AddWithValue("@id", id);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Connection.Close();
+            return new { message = "Sikeres törlés." };
         }
     }
 }

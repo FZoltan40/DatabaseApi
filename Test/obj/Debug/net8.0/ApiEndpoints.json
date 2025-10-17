@@ -21,6 +21,38 @@
   },
   {
     "ContainingType": "Test.Controllers.BooksController",
+    "Method": "AddNewRecord",
+    "RelativePath": "books",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "book",
+        "Type": "Test.CreateBookDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Test.Controllers.BooksController",
+    "Method": "DeleteRecord",
+    "RelativePath": "books",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Test.Controllers.BooksController",
     "Method": "GetById",
     "RelativePath": "books/getById",
     "HttpMethod": "GET",

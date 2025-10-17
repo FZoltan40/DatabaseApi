@@ -2051,11 +2051,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Desktop\\13ABackend\\Apis\\Test\\Test\\Test.csproj",
+      "projectUniqueName": "D:\\Desktop\\2025_2026\\13ABackend\\Apis\\Test\\Test\\Test.csproj",
       "projectName": "Test",
-      "projectPath": "D:\\Desktop\\13ABackend\\Apis\\Test\\Test\\Test.csproj",
+      "projectPath": "D:\\Desktop\\2025_2026\\13ABackend\\Apis\\Test\\Test\\Test.csproj",
       "packagesPath": "C:\\Users\\farka\\.nuget\\packages\\",
-      "outputPath": "D:\\Desktop\\13ABackend\\Apis\\Test\\Test\\obj\\",
+      "outputPath": "D:\\Desktop\\2025_2026\\13ABackend\\Apis\\Test\\Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
