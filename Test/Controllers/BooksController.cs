@@ -97,5 +97,25 @@ namespace Test.Controllers
             conn.Connection.Close();
             return new { message = "Sikeres törlés." };
         }
+
+        [HttpPut]
+        public object UpdateRecord(int id, UpdateBookDto updateBookDto)
+        {
+            conn.Connection.Open();
+
+            string sql = "UPDATE `books` SET `title`= @title,`author`= @author,`releaseDate`= @date WHERE `id` = @id";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn.Connection);
+
+            cmd.Parameters.AddWithValue("@Title", updateBookDto.Title);
+            cmd.Parameters.AddWithValue("@Author", updateBookDto.Author);
+            cmd.Parameters.AddWithValue("@date", updateBookDto.ReleaseDate);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Connection.Close();
+            return new { message = "Sikeres frissítés.", result = updateBookDto };
+        }
     }
 }

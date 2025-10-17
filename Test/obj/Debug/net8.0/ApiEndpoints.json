@@ -53,6 +53,16 @@
   },
   {
     "ContainingType": "Test.Controllers.BooksController",
+    "Method": "UpdateRecord",
+    "RelativePath": "books",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Test.Controllers.BooksController",
     "Method": "GetById",
     "RelativePath": "books/getById",
     "HttpMethod": "GET",

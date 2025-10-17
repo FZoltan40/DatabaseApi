@@ -90,6 +90,16 @@
             "description": "OK"
           }
         }
+      },
+      "put": {
+        "tags": [
+          "Books"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/books/getById": {
